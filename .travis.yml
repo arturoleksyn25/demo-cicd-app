@@ -2,8 +2,18 @@ language: node_js
 node_js: 16.13.1
 cache: npm
 
+branches:
+  only:
+    - master
+    
 install:
   - npm i
 
 script:
   - npm run build
+
+deploy:
+  provider: surge
+  skip_cleanup: true
+  project: ./dist/
+  domain: talented-geese.surge.sh
