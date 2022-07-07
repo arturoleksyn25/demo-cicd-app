@@ -10,6 +10,5 @@ script:
 
 deploy:
   provider: surge
-  skip_cleanup: true
-  project: ./build/
+  project: ./static/
   domain: talented-geese.surge.sh
