@@ -1,14 +1,11 @@
 language: node_js
 node_js: 16.13.1
 cache: npm
+after_success:
+  - surge --project ./build --domain talented-geese.surge.sh
 
 install:
   - npm i
 
 script:
   - npm run build
-
-deploy:
-  provider: surge
-  project: ./static/
-  domain: talented-geese.surge.sh
