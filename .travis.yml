@@ -1,10 +1,11 @@
 language: node_js
 node_js: 16.13.1
 cache: npm
+after_success:
+  - surge --project ./build --domain artur-cicd-app.surge.sh
 
 install:
   - npm i
 
 script:
   - npm run build
-  - surge --project ./build --domain artur-cicd-app.surge.sh
