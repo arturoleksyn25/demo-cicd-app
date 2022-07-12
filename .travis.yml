@@ -14,6 +14,7 @@ jobs:
       script: npm run build
 
     - stage: deploy
+      script: skip
       provider: surge
       skip_cleanup: true
       project: ./build/
