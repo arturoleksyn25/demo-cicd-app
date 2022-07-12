@@ -2,11 +2,16 @@ language: node_js
 node_js: 16.13.1
 cache: npm
 
-before-script:
-  - npm i
+jobs:
+  include:
+    - stage: install
+    script: npm i
 
-script:
-  - npm run build
+    - stage: test
+    script: npm run test
+
+    - stage: build
+    script: npm run build
 
 deploy:
   provider: surge
