@@ -5,18 +5,18 @@ cache: npm
 jobs:
   include:
     - stage: install
-    script: npm i
+      script: npm i
 
     - stage: test
-    script: npm run test
+      script: npm run test
 
     - stage: build
-    script: npm run build
+      script: npm run build
 
-deploy:
-  provider: surge
-  skip_cleanup: true
-  project: ./build/
-  domain: artur-cicd-app.surge.sh
-  on:
-    all_branches: true
+# deploy:
+#   provider: surge
+#   skip_cleanup: true
+#   project: ./build/
+#   domain: artur-cicd-app.surge.sh
+#   on:
+#     all_branches: true
