@@ -2,22 +2,17 @@ language: node_js
 node_js: 16.13.1
 cache: npm
 
-jobs:
-  include:
-    - stage: install
-      script: npm i
+before-script:
+  - npm i
 
-    - stage: test
-      script: npm run test
+script:
+  - npm run test
+  - npm run build
 
-    - stage: build
-      script: npm run build
-
-    - stage: deploy
-      script: skip
-      provider: surge
-      skip_cleanup: true
-      project: ./build/
-      domain: artur-cicd-app.surge.sh
-      on:
-        all_branches: true
+deploy:
+  provider: surge
+  skip_cleanup: true
+  project: ./build/
+  domain: artur-cicd-app.surge.sh
+  on:
+    all_branches: true
