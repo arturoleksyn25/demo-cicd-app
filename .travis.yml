@@ -13,10 +13,10 @@ jobs:
     - stage: build
       script: npm run build
 
-# deploy:
-#   provider: surge
-#   skip_cleanup: true
-#   project: ./build/
-#   domain: artur-cicd-app.surge.sh
-#   on:
-#     all_branches: true
+    - stage: deploy
+      provider: surge
+      skip_cleanup: true
+      project: ./build/
+      domain: artur-cicd-app.surge.sh
+      on:
+        all_branches: true
